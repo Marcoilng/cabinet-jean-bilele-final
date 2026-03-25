@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Fondateur — Cabinet JBK Conseils</title>
+    <meta name="description" content="Découvrez Maître Jean Bilele Kasongo, avocat fondateur du Cabinet JBK Conseils, inscrit aux Barreaux du Haut-Katanga, Kinshasa/Gombe et Lualaba.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --ivory: #FDFBF7;
+            --charcoal: #111111;
+            --gold: #C5A059;
+            --gold-dark: #B08D4B;
+            --gold-light: rgba(197,160,89,0.12);
+            --stone: #F5F3EF;
+            --text: #333333;
+            --text-muted: #6b6b6b;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--ivory);
+            color: var(--text);
+            font-family: 'Lato', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ---- SCROLLBAR ---- */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--ivory); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+        /* ---- KEYFRAMES ---- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+        @keyframes lineGrow {
+            from { height: 0; }
+            to   { height: 100%; }
+        }
+        @keyframes shimmer {
+            0%   { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-8px); }
+        }
+        @keyframes pulse-ring {
+            0%   { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        /* ---- REVEAL CLASSES ---- */
+        .reveal { opacity: 0; transition: opacity 0.9s ease, transform 0.9s ease; }
+        .reveal.up    { transform: translateY(40px); }
+        .reveal.left  { transform: translateX(-50px); }
+        .reveal.right { transform: translateX(50px); }
+        .reveal.scale { transform: scale(0.92); }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* ---- NAV ---- */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            transition: all 0.6s ease;
+            padding: 2rem 0;
+        }
+        nav.scrolled {
+            background: rgba(253,251,247,0.96);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.07);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem; letter-spacing: -0.02em;
+            text-decoration: none; color: #fff;
+            transition: color 0.3s;
+        }
+        nav.scrolled .nav-logo { color: var(--charcoal); }
+        .nav-logo span { color: var(--gold); }
+        .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: #fff;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+        nav.scrolled .nav-links a { color: var(--charcoal); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+            height: 1px; background: var(--gold);
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold)!important; transform: translateY(-1px); }
+        .nav-links a:hover::after { transform: scaleX(1); }
+        .nav-links a.active { color: var(--gold)!important; }
+        .nav-links a.active::after { transform: scaleX(1); }
+        .btn-nav {
+            background: rgba(255,255,255,0.1); color: #fff!important;
+            padding: 0.8rem 1.8rem; border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+            text-decoration: none; transition: all 0.4s ease;
+            cursor: pointer; border-radius: 50px;
+        }
+        nav.scrolled .btn-nav { background: var(--charcoal); border-color: var(--charcoal); }
+        .btn-nav:hover { background: var(--gold)!important; border-color: var(--gold)!important; color: #fff; transform: none; }
+        .btn-nav:hover::after { display: none; }
+
+        /* Mobile nav */
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; border: none; background: transparent; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all 0.3s; border-radius: 2px; }
+        nav.scrolled .hamburger span { background: var(--charcoal); }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(8px); }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-menu {
+            display: none; position: fixed; inset: 0;
+            background: rgba(253,251,247,0.97); backdrop-filter: blur(16px);
+            flex-direction: column; align-items: center; justify-content: center;
+            gap: 2rem; z-index: 99;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+        }
+        .mobile-menu.open { opacity: 1; pointer-events: all; display: flex; }
+        .mobile-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; color: var(--charcoal);
+            text-decoration: none; transition: color 0.3s;
+        }
+        .mobile-menu a:hover { color: var(--gold); }
+
+        /* ---- HERO ---- */
+        .hero {
+            position: relative; min-height: 70vh;
+            display: flex; align-items: flex-end;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1410 50%, #111111 100%);
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A059' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hero-accent {
+            position: absolute; right: -5%; top: 0; bottom: 0;
+            width: 45%; background: linear-gradient(to bottom, rgba(197,160,89,0.08), transparent);
+            border-left: 1px solid rgba(197,160,89,0.15);
+            transform: skewX(-6deg);
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 1200px; margin: 0 auto; width: 100%;
+            padding: 8rem 2rem 5rem;
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.25em; text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.8s ease 0.2s both;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1.1;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.8s ease 0.4s both;
+        }
+        .hero-title em {
+            font-style: italic;
+            background: linear-gradient(90deg, var(--gold), #e8c97a, var(--gold));
+            background-size: 200%;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite 1.2s;
+        }
+        .hero-subtitle {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem; font-weight: 300; line-height: 1.7;
+            max-width: 520px;
+            animation: fadeUp 0.8s ease 0.6s both;
+        }
+        .hero-bar {
+            width: 60px; height: 2px; background: var(--gold);
+            margin: 2rem 0;
+            animation: fadeUp 0.8s ease 0.5s both;
+        }
+
+        /* ---- SECTION ---- */
+        .section { padding: 6rem 0; }
+        .section-alt { background: var(--stone); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        .eyebrow {
+            display: block;
+            color: var(--gold); font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 0.22em; text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2; color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+        .section-divider {
+            width: 48px; height: 1px; background: var(--gold);
+            opacity: 0.6; margin: 1.5rem 0;
+        }
+        .section-divider.center { margin: 1.5rem auto; }
+
+        /* ---- PORTRAIT SECTION ---- */
+        .portrait-section {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 5rem; align-items: center;
+            padding: 7rem 0;
+        }
+        .portrait-wrapper {
+            position: relative;
+        }
+        .portrait-frame {
+            position: relative; aspect-ratio: 3/4;
+            border-radius: 2px; overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.18);
+        }
+        .portrait-frame img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(15%);
+            image-rendering: high-quality;
+            transition: filter 0.8s ease, transform 0.8s ease;
+        }
+        .portrait-frame:hover img { filter: grayscale(0); transform: scale(1.04); }
+        .portrait-frame::after {
+            content: '';
+            position: absolute; inset: 1rem;
+            border: 1px solid rgba(197,160,89,0.4);
+            border-radius: 2px; pointer-events: none;
+            opacity: 0; transition: opacity 0.5s ease;
+        }
+        .portrait-frame:hover::after { opacity: 1; }
+        .portrait-badge {
+            position: absolute; bottom: -1.5rem; right: -1.5rem;
+            background: var(--charcoal); color: #fff;
+            padding: 1.2rem 1.8rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            animation: float 4s ease-in-out infinite;
+        }
+        .portrait-badge .badge-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem; margin-bottom: 0.2rem;
+        }
+        .portrait-badge .badge-sub {
+            font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--gold);
+        }
+        .portrait-dec {
+            position: absolute; top: -1.5rem; left: -1.5rem;
+            width: 80px; height: 80px;
+            border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
+        }
+
+        /* ---- BIO TEXT ---- */
+        .bio-content { padding-left: 0.5rem; }
+        .bio-intro {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem; line-height: 1.7;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+        .bio-text {
+            font-size: 1rem; line-height: 1.85;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+        }
+
+        /* ---- BARREAUX TAGS ---- */
+        .barreaux-grid {
+            display: flex; flex-wrap: wrap; gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        .barreau-tag {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--gold-light);
+            border: 1px solid rgba(197,160,89,0.3);
+            padding: 0.5rem 1rem;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--charcoal);
+            transition: all 0.3s ease;
+        }
+        .barreau-tag:hover { background: var(--gold); color: #fff; }
+        .barreau-tag::before { content: '◆'; color: var(--gold); font-size: 0.5rem; }
+        .barreau-tag:hover::before { color: #fff; }
+
+        /* ---- TIMELINE ---- */
+        .timeline { position: relative; padding: 3rem 0; }
+        .timeline-spine {
+            position: absolute; left: 120px; top: 0; bottom: 0; width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+        }
+        .timeline-item {
+            display: grid; grid-template-columns: 120px 40px 1fr;
+            gap: 0 1.5rem; margin-bottom: 3rem; align-items: start;
+        }
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem; font-weight: 600;
+            color: var(--gold); text-align: right;
+            padding-top: 0.2rem; padding-right: 1.5rem;
+        }
+        .timeline-dot-col { position: relative; display: flex; justify-content: center; }
+        .timeline-dot {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--gold); border: 3px solid var(--ivory);
+            box-shadow: 0 0 0 1px var(--gold);
+            position: relative; z-index: 1; margin-top: 0.3rem;
+            transition: transform 0.3s ease;
+        }
+        .timeline-item:hover .timeline-dot { transform: scale(1.4); }
+        .timeline-dot::after {
+            content: '';
+            position: absolute; inset: -4px;
+            border-radius: 50%; background: var(--gold);
+            opacity: 0; animation: pulse-ring 2s ease-out infinite;
+        }
+        .timeline-body { padding-top: 0.2rem; }
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem; color: var(--charcoal);
+            margin-bottom: 0.4rem;
+        }
+        .timeline-desc {
+            font-size: 0.9rem; line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        /* ---- VALUES CARDS ---- */
+        .values-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2rem; margin-top: 3rem;
+        }
+        .value-card {
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(197,160,89,0.2);
+            background: rgba(255,255,255,0.6); backdrop-filter: blur(8px);
+            transition: all 0.5s ease;
+            position: relative; overflow: hidden;
+        }
+        .value-card::before {
+            content: '';
+            position: absolute; left: 0; top: 0; bottom: 0;
+            width: 3px; background: var(--gold);
+            transform: scaleY(0); transform-origin: bottom;
+            transition: transform 0.4s ease;
+        }
+        .value-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(197,160,89,0.12); }
+        .value-card:hover::before { transform: scaleY(1); }
+        .value-icon {
+            width: 48px; height: 48px;
+            background: var(--gold-light); border-radius: 2px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: background 0.3s;
+        }
+        .value-card:hover .value-icon { background: var(--gold); }
+        .value-icon svg { transition: stroke 0.3s; }
+        .value-card:hover .value-icon svg { stroke: #fff; }
+        .value-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--charcoal);
+        }
+        .value-desc { font-size: 0.9rem; line-height: 1.7; color: var(--text-muted); }
+
+        /* ---- CTA SECTION ---- */
+        .cta-section {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #1a1410 60%, #0a0a0a 100%);
+            padding: 6rem 0;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A059' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: #fff; margin-bottom: 1.5rem; position: relative;
+        }
+        .cta-sub { color: rgba(255,255,255,0.55); font-size: 1rem; margin-bottom: 3rem; position: relative; }
+        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 1rem 2.2rem;
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+            text-decoration: none; border: 1px solid; cursor: pointer;
+            transition: all 0.4s ease; border-radius: 50px;
+        }
+        .btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+        .btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(197,160,89,0.3); }
+        .btn-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); }
+        .btn-white:hover { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-2px); }
+
+        /* ---- QUOTE ---- */
+        .quote-section { padding: 5rem 0; text-align: center; }
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem; line-height: 0.5; color: var(--gold);
+            opacity: 0.3; display: block; margin-bottom: 1rem;
+        }
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
+            font-style: italic; line-height: 1.6;
+            color: var(--charcoal); max-width: 700px; margin: 0 auto 1.5rem;
+        }
+        .quote-author {
+            color: var(--gold); font-size: 0.75rem;
+            font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            background: #0a0a0a; color: rgba(255,255,255,0.4);
+            padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #fff; margin-bottom: 1rem; }
+        .footer-logo span { color: var(--gold); }
+        .footer-desc { font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.5rem; max-width: 320px; }
+        .footer-social-flex { display: flex; gap: 0.8rem; }
+        .footer-social { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); transition: all 0.3s; text-decoration: none; }
+        .footer-social:hover { background: var(--gold); color: #fff; transform: translateY(-3px); }
+        .footer-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #fff; margin-bottom: 1.5rem; }
+        .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-links-list li { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .footer-links-list a { color: inherit; text-decoration: none; transition: color 0.3s; font-size: 0.9rem; }
+        .footer-links-list a:hover { color: var(--gold); }
+        .footer-icon-wrap { width: 18px; margin-top: 2px; color: var(--gold); flex-shrink: 0; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.8rem; opacity: 0.7; }
+        .footer-bottom a { color: var(--gold); text-decoration: none; font-weight: bold; }
+        .footer-bottom a:hover { text-decoration: underline; opacity: 1; }
+
+        /* ---- WHATSAPP FLOAT ---- */
+        .wa-float {
+            position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: #25D366; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+            cursor: pointer; text-decoration: none;
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+        .wa-float::before {
+            content: ''; position: absolute; inset: 0; border-radius: 50%;
+            background: rgba(37,211,102,0.4); animation: pulse-ring 2s ease-out infinite;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .portrait-section { grid-template-columns: 1fr; gap: 4rem; }
+            .portrait-badge { bottom: -1rem; right: -0.5rem; }
+            .values-grid { grid-template-columns: 1fr; }
+            .timeline-spine { left: 80px; }
+            .timeline-item { grid-template-columns: 80px 30px 1fr; gap: 0 1rem; }
+            .timeline-year { font-size: 0.85rem; padding-right: 1rem; }
+        }
+        @media (max-width: 600px) {
+            .hero-content { padding: 7rem 1.5rem 4rem; }
+            .section { padding: 4rem 0; }
+            .container { padding: 0 1.5rem; }
+            .timeline { padding: 2rem 0; }
+            .timeline-spine { left: 60px; }
+            .timeline-item { grid-template-columns: 60px 24px 1fr; gap: 0 0.75rem; }
+            .portrait-wrapper { padding-bottom: 2rem; }
+            .footer-inner { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">Cabinet <span>JBK Conseils</span></a>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="fondateur.html" class="active">Le Fondateur</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn-nav">Prendre RDV</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Accueil</a>
+        <a href="fondateur.html">Le Fondateur</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" style="color:var(--gold);">Prendre RDV →</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-accent"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">Le Fondateur</span>
+            <h1 class="hero-title">
+                Maître Jean<br><em>Bilele Kasongo</em>
+            </h1>
+            <div class="hero-bar"></div>
+            <p class="hero-subtitle">Avocat inscrit au Barreau du Haut-Katanga, fondateur du Cabinet JBK Conseils, engagé au service de l'excellence juridique en RDC.</p>
+        </div>
+    </section>
+
+    <!-- PORTRAIT + BIO -->
+    <section class="section">
+        <div class="container">
+            <div class="portrait-section">
+                <div class="portrait-wrapper reveal scale">
+                    <div class="portrait-dec"></div>
+                    <div class="portrait-frame">
+                        <img src="images/maitre JBK bureau.jpeg" alt="Maître Jean Bilele Kasongo dans son bureau" loading="lazy" class="brightness-105 contrast-105">
+                    </div>
+                    <div class="portrait-badge">
+                        <div class="badge-title">Maître JBK</div>
+                        <div class="badge-sub">Avocat — Fondateur</div>
+                    </div>
+                </div>
+
+                <div class="bio-content">
+                    <span class="eyebrow reveal up" style="transition-delay:0.1s">Biographie</span>
+                    <h2 class="section-title reveal up" style="transition-delay:0.2s">Une vocation au service du droit et de la justice</h2>
+                    <div class="section-divider reveal up" style="transition-delay:0.25s"></div>
+                    <p class="bio-intro reveal up" style="transition-delay:0.3s">
+                        Maître Jean Bilele Kasongo est avocat inscrit au Barreau du Haut-Katanga (ancien Barreau de Lubumbashi), où il exerce en qualité d'avocat près la Cour d'appel.
+                    </p>
+                    <p class="bio-text reveal up" style="transition-delay:0.4s">
+                        Il est également inscrit au tableau des barreaux de <strong>Kinshasa/Gombe</strong> et du <strong>Lualaba</strong>, ce qui lui confère une capacité d'intervention multi-juri­dic­tion­nelle unique au sein de la République Démocratique du Congo.
+                    </p>
+                    <p class="bio-text reveal up" style="transition-delay:0.5s">
+                        Il a précédemment exercé au sein du cabinet <strong>Global Conseils</strong>, dirigé par Maître Robert Kadima, où il a acquis une solide expérience dans le traitement de dossiers juridiques complexes et le conseil stratégique à haut niveau.
+                    </p>
+                    <p class="bio-text reveal up" style="transition-delay:0.6s">
+                        Aujourd'hui, il met son expertise, sa rigueur et son sens aigu de l'analyse au service d'une clientèle exigeante — entreprises, investisseurs et particuliers — en proposant un accompagnement juridique personnalisé, orienté vers des résultats concrets et mesurables.
+                    </p>
+
+                    <div class="barreaux-grid reveal up" style="transition-delay:0.7s">
+                        <span class="barreau-tag">Barreau du Haut-Katanga</span>
+                        <span class="barreau-tag">Barreau de Kinshasa / Gombe</span>
+                        <span class="barreau-tag">Barreau du Lualaba</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PALAIS DE JUSTICE GALLERY -->
+    <section class="section section-alt" style="padding-top: 0;">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 4rem;">
+                <span class="eyebrow reveal up">Rayonnement National</span>
+                <h2 class="section-title reveal up" style="transition-delay:0.1s">Une présence active sur les scènes judiciaires majeures</h2>
+                <div class="section-divider center reveal up" style="transition-delay:0.2s"></div>
+                <p class="bio-text reveal up" style="transition-delay:0.3s">Grâce à ses multiples inscriptions, Maître JBK assure une défense rigoureuse devant les plus hautes instances du pays.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="reveal left" style="transition-delay:0.4s">
+                    <div class="portrait-frame" style="aspect-ratio: 16/9; margin-bottom: 1.5rem;">
+                        <img src="images/palais de justice lubumbashi.jpeg" alt="Palais de Justice de Lubumbashi" loading="lazy" class="brightness-110 contrast-105">
+                    </div>
+                    <h3 class="timeline-title" style="text-align: center;">Palais de Justice de Lubumbashi</h3>
+                    <p class="timeline-desc" style="text-align: center;">Siège du Barreau du Haut-Katanga</p>
+                </div>
+                <div class="reveal right" style="transition-delay:0.5s">
+                    <div class="portrait-frame" style="aspect-ratio: 16/9; margin-bottom: 1.5rem;">
+                        <img src="images/palais de justice kinshasa.jpeg" alt="Palais de Justice de Kinshasa" loading="lazy" class="brightness-110 contrast-105">
+                    </div>
+                    <h3 class="timeline-title" style="text-align: center;">Palais de Justice de Kinshasa</h3>
+                    <p class="timeline-desc" style="text-align: center;">Siège du Barreau de Kinshasa / Gombe</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote-section section-alt">
+        <div class="container">
+            <div class="reveal scale">
+                <span class="quote-mark">"</span>
+                <p class="quote-text">
+                    Le droit n'est pas seulement une discipline — c'est un art au service de la justice, de l'équité et du progrès de nos entreprises et de notre nation.
+                </p>
+                <div class="quote-author" style="margin-top:1.5rem">— Maître Jean Bilele Kasongo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE PARCOURS -->
+    <section class="section">
+        <div class="container">
+            <div style="text-align:center; max-width:600px; margin:0 auto 4rem;">
+                <span class="eyebrow reveal up">Parcours</span>
+                <h2 class="section-title reveal up" style="transition-delay:0.1s">Un itinéraire d'excellence</h2>
+                <div class="section-divider center reveal up" style="transition-delay:0.2s"></div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-spine"></div>
+
+                <div class="timeline-item reveal left" style="transition-delay:0.1s">
+                    <div class="timeline-year">Début</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-body">
+                        <div class="timeline-title">Formation juridique</div>
+                        <div class="timeline-desc">Études de droit en RDC, acquisition des fondements théoriques et pratiques du droit congolais, OHADA et droit international.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal left" style="transition-delay:0.2s">
+                    <div class="timeline-year">Cabinet Global Conseils</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-body">
+                        <div class="timeline-title">Collaborateur — Cabinet Global Conseils</div>
+                        <div class="timeline-desc">Exercice au sein du cabinet dirigé par Maître Robert Kadima. Traitement de dossiers juridiques complexes, conseil stratégique, droit minier et des affaires à Lubumbashi.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal left" style="transition-delay:0.3s">
+                    <div class="timeline-year">Inscription</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-body">
+                        <div class="timeline-title">Inscriptions multi-barreaux</div>
+                        <div class="timeline-desc">Inscription au tableau des barreaux du <strong>Haut-Katanga</strong>, de <strong>Kinshasa/Gombe</strong> et du <strong>Lualaba</strong> — permettant une intervention nationale étendue.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal left" style="transition-delay:0.4s">
+                    <div class="timeline-year">Aujourd'hui</div>
+                    <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+                    <div class="timeline-body">
+                        <div class="timeline-title">Fondation du Cabinet JBK Conseils</div>
+                        <div class="timeline-desc">Création du cabinet indépendant à Lubumbashi, spécialisé en droit minier, droit des affaires et droit commun. Accompagnement d'une clientèle exigeante avec rigueur et excellence.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALEURS -->
+    <section class="section section-alt">
+        <div class="container">
+            <div style="text-align:center; max-width:600px; margin:0 auto 1rem;">
+                <span class="eyebrow reveal up">ADN du Cabinet</span>
+                <h2 class="section-title reveal up" style="transition-delay:0.1s">Expertise, Rigueur, Excellence</h2>
+                <div class="section-divider center reveal up" style="transition-delay:0.2s"></div>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal up" style="transition-delay:0.1s">
+                    <div class="value-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+                    </div>
+                    <div class="value-title">Expertise reconnue</div>
+                    <div class="value-desc">Maîtrise profonde du droit congolais, du droit OHADA et des spécificités du secteur minier et des affaires en RDC.</div>
+                </div>
+                <div class="value-card reveal up" style="transition-delay:0.2s">
+                    <div class="value-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="value-title">Rigueur & Intégrité</div>
+                    <div class="value-desc">Chaque dossier est traité avec une attention extrême, une totale confidentialité et une déontologie irréprochable.</div>
+                </div>
+                <div class="value-card reveal up" style="transition-delay:0.3s">
+                    <div class="value-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="value-title">Disponibilité</div>
+                    <div class="value-desc">Une réactivité permanente pour répondre aux urgences juridiques, avec un suivi personnalisé à chaque étape.</div>
+                </div>
+                <div class="value-card reveal up" style="transition-delay:0.4s">
+                    <div class="value-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="value-title">Approche personnalisée</div>
+                    <div class="value-desc">Chaque client bénéficie d'une stratégie sur mesure, co-construite pour maximiser les chances de succès.</div>
+                </div>
+                <div class="value-card reveal up" style="transition-delay:0.5s">
+                    <div class="value-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="value-title">Résultats concrets</div>
+                    <div class="value-desc">Un taux de succès élevé grâce à une approche rigoureuse, analytique et orientée vers des outcomes mesurables.</div>
+                </div>
+                <div class="value-card reveal up" style="transition-delay:0.6s">
+                    <div class="value-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 1 21 12a10 10 0 0 1-2.93 7.07"/><path d="M4.93 4.93A10 10 0 0 0 3 12a10 10 0 0 0 1.93 5.85"/></svg>
+                    </div>
+                    <div class="value-title">Vision stratégique</div>
+                    <div class="value-desc">Anticipation des risques juridiques et accompagnement dans les décisions structurantes pour votre activité.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="reveal up">
+                <p class="eyebrow" style="color:var(--gold); margin-bottom:1rem">Consultation</p>
+                <h2 class="cta-title">Besoin d'un accompagnement juridique ?</h2>
+                <p class="cta-sub">Prenez rendez-vous avec Maître Jean Bilele Kasongo pour une consultation personnalisée.</p>
+                <div class="btn-group">
+                    <a href="contact.html" class="btn btn-gold">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Prendre rendez-vous
+                    </a>
+                    <a href="services.html" class="btn btn-white">Voir nos services →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Cabinet <span>JBK Conseils</span></div>
+                    <p class="footer-desc">Expertise juridique d'excellence, au service de vos intérêts en République Démocratique du Congo. Accompagnement stratégique, rigueur et intégrité.</p>
+                    <div class="footer-social-flex">
+                        <a href="https://wa.me/+243990311138" class="footer-social" target="_blank" aria-label="WhatsApp">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.446l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/jeanbilelekasongo" class="footer-social" target="_blank" aria-label="LinkedIn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="https://facebook.com/cabinetjbk" class="footer-social" target="_blank" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Liens Utiles</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="fondateur.html">Le Fondateur</a></li>
+                        <li><a href="services.html">Nos Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Coordonnées</h4>
+                    <ul class="footer-links-list">
+                        <li>
+                            <div class="footer-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                            <a href="tel:+243990311138">+243 990 311 138</a>
+                        </li>
+                        <li>
+                            <div class="footer-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+                            <a href="mailto:contact@cabinetjbk.cd">contact@cabinetjbk.cd</a>
+                        </li>
+                        <li>
+                            <div class="footer-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                            <span style="color:rgba(255,255,255,.6); line-height:1.6;">Avenue Maniema coin Kambove<br>Lubumbashi, RDC</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Cabinet JBK Conseils. Tous droits réservés.</span>
+                <span>Site conçu par <a href="https://marcoilng.netlify.app" target="_blank" style="transition:opacity 0.3s;">Marco ILUNGA</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/+243990311138" class="wa-float" target="_blank" aria-label="Contacter sur WhatsApp">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.446l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // NAV SCROLL
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // HAMBURGER
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+        mobileMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // INTERSECTION OBSERVER — REVEAL
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

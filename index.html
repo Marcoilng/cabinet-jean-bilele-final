@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cabinet J.B.K. & Conseils</title>
+<title>Cabinet JBK Conseils</title>
     
     <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -90,6 +90,7 @@
         const { useState, useEffect, useRef } = React;
 
         // ICÔNES SVG
+        const Building = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>);
         const Scale = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>);
         const Briefcase = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><path d="M5 20h14"/><path d="M4 16h16"/><line x1="8" y1="12" x2="8" y2="16"/><line x1="16" y1="12" x2="16" y2="16"/></svg>);
         const BalanceScale = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><circle cx="12" cy="12" r="3"/><path d="M19.1 15.23L19.1 17a2 2 0 0 1-2 2h-2.18a2 2 0 0 1-2-2v-2"/><path d="M4.9 15.23L4.9 17a2 2 0 0 1 2 2h2.18a2 2 0 0 1 2 2v2"/><path d="M15 8.61L15 6a2 2 0 0 0 2-2 2 2 0 0 1 2-2h2"/><path d="M9 8.61L9 6a2 2 0 0 1-2-2 2 2 0 0 0-2-2H3"/><line x1="12" y1="21" x2="12" y2="15"/></svg>);
@@ -99,6 +100,7 @@
         const Linkedin = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>);
         const Facebook = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>);
         const Check = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><polyline points="20 6 9 17 4 12"/></svg>);
+        const Landmark = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>);
 
         // Composant Reveal avec motion avancé
         const RevealMotion = ({ children, delay = 0, direction = 'up', stagger = 0 }) => {
@@ -179,7 +181,7 @@
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full p-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:border-gold transition-all duration-300"
+                            className="w-full p-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:border-gold transition-all duration-300"
                         />
                     </div>
                     <div>
@@ -190,7 +192,7 @@
                             value={formData.phone}
                             onChange={handleChange}
                             required
-                            className="w-full p-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:border-gold transition-all duration-300"
+                            className="w-full p-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:border-gold transition-all duration-300"
                         />
                     </div>
                     <div>
@@ -200,13 +202,52 @@
                             placeholder="Votre demande rapide..." 
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full p-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:border-gold transition-all duration-300 resize-none"
+                            className="w-full p-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl text-white placeholder-white/70 focus:outline-none focus:border-gold transition-all duration-300 resize-none"
                         />
                     </div>
                     <Button variant="gold" type="submit" disabled={status === 'sending'} className="w-full">
                         {status === 'sending' ? 'Envoi...' : 'Envoyer (1 min)'}
                     </Button>
                 </form>
+            );
+        };
+
+        // Composant ServiceCard avec gestion de l'état "Voir plus/moins"
+        const ServiceCard = ({ service, index }) => {
+            const [expanded, setExpanded] = useState(false);
+            const isExpandable = !!service.details;
+
+            return (
+                <RevealMotion direction={index % 2 === 0 ? 'left' : 'right'} delay={index * 150} className="group">
+                    <div className="group bg-white/70 backdrop-blur-md p-8 md:p-10 rounded-2xl border border-stone-200 hover:border-gold/80 hover:shadow-2xl hover:shadow-gold/10 transition-all duration-700 hover:-translate-y-2 hover:scale-[1.02] flex flex-col h-full">
+                        <div className="flex items-start mb-6 group-hover:scale-110 transition-transform duration-500">
+                            <div className="text-gold shrink-0 mt-1 w-12 h-12 flex items-center justify-center bg-gold/10 rounded-xl mr-4 group-hover:bg-gold/20 transition-all duration-500">
+                                <service.icon className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <h3 className="font-serif text-xl mb-4 text-charcoal group-hover:text-gold transition-colors duration-300">{service.title}</h3>
+                            </div>
+                        </div>
+                        <div className="flex-grow">
+                            <div className="text-sm text-stone-600 leading-relaxed">
+                                {service.desc}
+                            </div>
+                            {isExpandable && expanded && (
+                                <div className="mt-6 text-sm text-stone-600 leading-relaxed border-t border-gold/20 pt-6 animate-fadeIn">
+                                    {service.details}
+                                </div>
+                            )}
+                        </div>
+                        {isExpandable && (
+                            <button 
+                                onClick={() => setExpanded(!expanded)} 
+                                className="mt-8 text-gold text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase hover:text-charcoal transition-colors self-start flex items-center bg-gold/5 px-4 py-2 rounded-lg border border-gold/20 hover:border-gold/50"
+                            >
+                                {expanded ? '- Voir moins' : '+ Voir tous les domaines'}
+                            </button>
+                        )}
+                    </div>
+                </RevealMotion>
             );
         };
 
@@ -227,7 +268,7 @@
 
         // Composant Button
         const Button = ({ children, variant = "primary", onClick, className = "", disabled = false }) => {
-            const baseStyle = "inline-flex items-center justify-center px-8 py-4 text-xs font-bold tracking-[0.15em] uppercase transition-all duration-500 ease-out cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
+            const baseStyle = "inline-flex items-center justify-center px-8 py-4 text-xs font-bold tracking-[0.15em] uppercase transition-all duration-500 ease-out cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed rounded-full";
             const variants = {
                 primary: "bg-charcoal text-white hover:bg-gold hover:text-white border border-charcoal hover:border-gold",
                 outline: "bg-transparent text-charcoal border border-charcoal hover:bg-charcoal hover:text-white",
@@ -266,21 +307,21 @@
                     <nav className={`fixed w-full z-50 transition-all duration-700 ${scrolled ? 'bg-white/95 backdrop-blur-md py-4 shadow-lg shadow-black/5' : 'bg-transparent py-8'}`}>
                         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
                             <div className="z-50 cursor-pointer group" onClick={() => window.location.href = 'accueil.html'}>
-                                <div className="font-serif text-2xl tracking-tighter text-charcoal group-hover:text-gold transition-colors duration-300">cabinet<span className="text-gold"> J.B.K.</span></div>
+                                <div className={`font-serif text-2xl tracking-tighter transition-colors duration-300 ${scrolled ? 'text-charcoal' : 'text-white'} group-hover:text-gold`}>Cabinet <span className="text-gold">JBK Conseils</span></div>
                             </div>
 
                             {/* Desktop Menu avec hover */}
                             <div className="hidden md:flex items-center space-x-10">
-                                <button onClick={() => scrollToSection('presentation')} className="text-xs font-bold tracking-[0.15em] uppercase text-charcoal hover:text-gold transition-all duration-300 hover:scale-105">Le Cabinet</button>
-                                <button onClick={() => scrollToSection('expertise')} className="text-xs font-bold tracking-[0.15em] uppercase text-charcoal hover:text-gold transition-all duration-300 hover:scale-105">Expertise</button>
-                                <button onClick={() => scrollToSection('pourquoi')} className="text-xs font-bold tracking-[0.15em] uppercase text-charcoal hover:text-gold transition-all duration-300 hover:scale-105">Pourquoi nous</button>
-                                <button onClick={() => scrollToSection('contact')} className="text-xs font-bold tracking-[0.15em] uppercase text-charcoal hover:text-gold transition-all duration-300 hover:scale-105">Contact</button>
-                                <Button variant="primary" onClick={() => scrollToSection('contact')}>Prendre RDV</Button>
+                                <a href="fondateur.html" className={`text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 hover:text-gold ${scrolled ? 'text-charcoal' : 'text-white'}`} style={{textDecoration:'none'}}>Le Fondateur</a>
+                                <a href="services.html" className={`text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 hover:text-gold ${scrolled ? 'text-charcoal' : 'text-white'}`} style={{textDecoration:'none'}}>Services</a>
+                                <button onClick={() => scrollToSection('pourquoi')} className={`text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 hover:text-gold ${scrolled ? 'text-charcoal' : 'text-white'}`}>Pourquoi nous</button>
+                                <a href="contact.html" className={`text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 hover:text-gold ${scrolled ? 'text-charcoal' : 'text-white'}`} style={{textDecoration:'none'}}>Contact</a>
+                                <Button variant={scrolled ? "primary" : "outline"} onClick={() => window.location.href='contact.html'} className={scrolled ? "" : "border-white text-white hover:bg-white hover:text-charcoal"}>Prendre RDV</Button>
                             </div>
 
                             {/* Mobile Menu Toggle avec rotation */}
                             <div className="md:hidden z-50">
-                                <button onClick={() => setMenuOpen(!menuOpen)} className="text-charcoal p-2 rounded-lg hover:bg-white/20 transition-all duration-300">
+                                <button onClick={() => setMenuOpen(!menuOpen)} className={`p-2 rounded-lg hover:bg-white/20 transition-all duration-300 ${scrolled || menuOpen ? 'text-charcoal' : 'text-white'}`}>
                                     <div className="space-y-1.5 w-6 h-6 flex flex-col justify-center">
                                         <span className={`block w-full h-0.5 bg-current transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
                                         <span className={`block w-full h-0.5 bg-current transition-all duration-300 ${menuOpen ? 'opacity-0 translate-x-3' : ''}`}></span>
@@ -292,24 +333,29 @@
 
                         {/* Mobile Overlay avec backdrop blur */}
                         <div className={`fixed inset-0 bg-ivory/95 backdrop-blur-md flex flex-col justify-center items-center space-y-8 transition-all duration-500 ease-in-out z-40 ${menuOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0 pointer-events-none'}`}>
-                            <button onClick={() => scrollToSection('presentation')} className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300">Le Cabinet</button>
-                            <button onClick={() => scrollToSection('expertise')} className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300">Expertise</button>
-                            <button onClick={() => scrollToSection('pourquoi')} className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300">Pourquoi nous</button>
-                            <button onClick={() => scrollToSection('contact')} className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300">Contact</button>
+                            <a href="fondateur.html" className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300" style={{textDecoration:'none'}}>Le Fondateur</a>
+                            <a href="services.html" className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300" style={{textDecoration:'none'}}>Services</a>
+                            <button onClick={() => { scrollToSection('pourquoi'); }} className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300">Pourquoi nous</button>
+                            <a href="contact.html" className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300" style={{textDecoration:'none'}}>Contact</a>
                         </div>
                     </nav>
 
                     {/* Hero avec parallax subtil */}
                     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal/90 to-[#0a0a0a]">
-                            <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-                            <div className="absolute top-0 right-0 w-3/4 h-full border-l border-white/10 transform skew-x-12"></div>
+                        <div className="absolute inset-0">
+                            <img 
+                                src="images/background page d'acceuil.png" 
+                                alt="Cabinet JBK Conseils Background" 
+                                className="w-full h-full object-cover brightness-110"
+                                style={{ imageRendering: 'high-quality' }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-charcoal/30 to-charcoal/70"></div>
                         </div>
 
                         <div className="relative container mx-auto px-6 md:px-12 text-center z-10">
                             <RevealMotion direction="up" delay={0}>
                                 <p className="text-gold text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-8">
-                                    Cabinet Jean Bilele Kasongo
+                                    Cabinet JBK Conseils
                                 </p>
                             </RevealMotion>
                             <RevealMotion direction="up" delay={200}>
@@ -345,10 +391,10 @@
                                     <div className="relative group">
                                         <div className="aspect-[3/4] relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-gold/20 transition-all duration-700">
                                             <img
-                                                src="images/maitre jean bilele.jpeg"
+                                                src="images/maitre JBK toge.jpeg"
                                                 alt="Maître Jean Bilele Kasongo"
-                                                className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out hover:scale-105"
-
+                                                className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out hover:scale-105 brightness-105"
+                                                style={{ imageRendering: 'high-quality' }}
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                             <div className="absolute inset-2 border-2 border-gold/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
@@ -362,7 +408,7 @@
                                     </RevealMotion>
                                     <RevealMotion direction="right" delay={600}>
                                         <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-6">
-                                            Le Cabinet Jean Bilele Kasongo
+                                            Le Cabinet JBK Conseils
                                         </h2>
                                     </RevealMotion>
                                     <RevealMotion direction="right" delay={800} stagger={0}>
@@ -394,45 +440,33 @@
                                     {
                                         title: "Droit des affaires",
                                         desc: "Conseil et contentieux pour entreprises : création SARL/SA (RCCM), contrats commerciaux internationaux, due diligence, fusions-acquisitions, protection propriété intellectuelle (OAPI/ARPTC), droit de la concurrence, joint-ventures, garanties/recouvrement créances, conformité OHADA et BCEAO.",
-                                        icon: Briefcase,
+                                        icon: Building,
                                     },
                                     {
                                         title: "Droit commun",
-                                        desc: "• Droit civil\n• Droit pénal\n• Droit commercial\n• Fiscalité d'entreprise\n• Droit administratif\n• Droit social\n• Création et gestion d'entreprise",
-                                        icon: BalanceScale,
+                                        desc: "Le cabinet intervient dans les principales branches du droit afin d’offrir une prise en charge complète de vos besoins juridiques, tant pour les particuliers que pour les entreprises.",
+                                        details: (
+                                            <div className="space-y-4">
+                                                <div><strong className="text-gold">• Droit civil</strong><br/>Gestion des relations juridiques entre personnes privées : litiges contractuels, responsabilité civile, affaires familiales (mariage, divorce, succession).</div>
+                                                <div><strong className="text-gold">• Droit pénal</strong><br/>Assistance et défense devant les juridictions pénales : conseil en phase d’enquête, représentation en justice et protection des droits du client.</div>
+                                                <div><strong className="text-gold">• Droit commercial</strong><br/>Encadrement des activités commerciales : rédaction de contrats, gestion des litiges entre partenaires, recouvrement de créances.</div>
+                                                <div><strong className="text-gold">• Fiscalité d’entreprise (droit fiscal)</strong><br/>Accompagnement en matière fiscale : optimisation fiscale, conformité aux obligations légales, assistance en cas de contrôle ou contentieux fiscal.</div>
+                                                <div><strong className="text-gold">• Droit administratif et contentieux administratifs</strong><br/>Relations avec les administrations publiques : recours administratifs, défense en cas de litige avec l’État ou ses institutions.</div>
+                                                <div><strong className="text-gold">• Droit social et sécurité sociale</strong><br/>Gestion des relations de travail : rédaction de contrats, règlement des litiges employeur/employé, conseil en droit du travail et protection sociale.</div>
+                                                <div><strong className="text-gold">• Création et gestion d’entreprise</strong><br/>Accompagnement des entrepreneurs à toutes les étapes : choix de la structure juridique, formalités de création, suivi et conseil juridique continu.</div>
+                                            </div>
+                                        ),
+                                        icon: Landmark,
                                     },
                                 ].map((service, index) => (
-                                    <RevealMotion key={index} direction={index % 2 === 0 ? 'left' : 'right'} delay={index * 150} className="group">
-                                        <div className="group bg-white/70 backdrop-blur-md p-8 md:p-10 rounded-2xl border border-stone-200 hover:border-gold/80 hover:shadow-2xl hover:shadow-gold/10 transition-all duration-700 hover:-translate-y-2 hover:scale-[1.02]">
-                                            <div className="flex items-start mb-6 group-hover:scale-110 transition-transform duration-500">
-                                                <div className="text-gold shrink-0 mt-1 w-12 h-12 flex items-center justify-center bg-gold/10 rounded-xl mr-4 group-hover:bg-gold/20 transition-all duration-500">
-                                                    <service.icon className="w-6 h-6" />
-                                                </div>
-                                                <div>
-                                                    <h3 className="font-serif text-xl mb-4 text-charcoal group-hover:text-gold transition-colors duration-300">{service.title}</h3>
-                                                    {service.listItems ? (
-                                                      <div className="flex flex-col space-y-2">
-                                                        {service.listItems.map((item, i) => (
-                                                          <div key={i} className="flex items-start pl-2">
-                                                            <span className="text-gold mr-2 mt-1 text-base font-bold flex-shrink-0">•</span>
-                                                            <span className="text-sm text-stone-600 font-light leading-relaxed">{item}</span>
-                                                          </div>
-                                                        ))}
-                                                      </div>
-                                                    ) : (
-                                                      <p className="text-sm text-stone-600 leading-relaxed">{service.desc}</p>
-                                                    )}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </RevealMotion>
+                                    <ServiceCard key={index} service={service} index={index} />
                                 ))}
                             </div>
                         </div>
                     </section>
 
                     {/* Pourquoi avec stagger vertical */}
-                    <section id="pourquoi" className="py-24 md:py-32">
+                    <section id="pourquoi" className="pt-24 pb-12 md:pt-32 md:pb-12">
                         <div className="container mx-auto px-6 md:px-12">
                             <div className="max-w-4xl mx-auto">
                                 <SectionTitle title="POURQUOI CHOISIR NOTRE CABINET ?" subtitle="" />
@@ -458,32 +492,56 @@
                         </div>
                     </section>
 
-                    {/* Formulaire Rapide avec focus states */}
-                    <section id="contact" className="py-24 md:py-32 bg-gradient-to-b from-charcoal to-charcoal/80">
+
+                    {/* Section Images additionnelles */}
+                    <section className="py-24 bg-white">
                         <div className="container mx-auto px-6 md:px-12">
-                            <div className="max-w-2xl mx-auto">
+                            <div className="grid md:grid-cols-2 gap-12">
+                                <RevealMotion direction="left" delay={200}>
+                                    <div className="relative group">
+                                        <div className="aspect-video overflow-hidden rounded-2xl shadow-xl">
+                                            <img 
+                                                src="images/medium-shot-lawyer-portrait.jpg" 
+                                                alt="Engagement Juridique" 
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-110 contrast-105"
+                                                style={{ imageRendering: 'high-quality' }}
+                                            />
+                                        </div>
+                                        <div className="mt-6">
+                                            <h3 className="font-serif text-2xl mb-2">Engagement & Rigueur</h3>
+                                            <p className="text-stone-500">Un accompagnement sur-mesure pour chaque dossier, avec une attention particulière aux détails.</p>
+                                        </div>
+                                    </div>
+                                </RevealMotion>
+                                <RevealMotion direction="right" delay={400}>
+                                    <div className="relative group">
+                                        <div className="aspect-video overflow-hidden rounded-2xl shadow-xl">
+                                            <img 
+                                                src="images/medium-shot-woman-working-as-lawyer.jpg" 
+                                                alt="Excellence et Avenir" 
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-110 contrast-105"
+                                                style={{ imageRendering: 'high-quality' }}
+                                            />
+                                        </div>
+                                        <div className="mt-6">
+                                            <h3 className="font-serif text-2xl mb-2">Excellence & Vision</h3>
+                                            <p className="text-stone-500">Une expertise juridique tournée vers l'avenir pour sécuriser vos investissements en RDC.</p>
+                                        </div>
+                                    </div>
+                                </RevealMotion>
                             </div>
                         </div>
                     </section>
 
-                    {/* CTA Buttons in place of removed form */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto mt-8">
-                        <Button variant="primary" onClick={() => window.open('tel:+243990311138', '_blank')} className="text-lg px-8 py-4">
-                            <Phone className="w-5 h-5 mr-3" /> Appeler
-                        </Button>
-                        <Button variant="gold" onClick={() => window.open('https://wa.me/+243990311138', '_blank')} className="text-lg px-8 py-4">
-                            <WhatsApp className="w-6 h-6 mr-3" /> WhatsApp
-                        </Button>
-                    </div>
 
                     {/* Maps avec hover zoom */}
-                    <section id="maps" className="py-24 md:py-32 bg-ivory">
+                    <section id="maps" className="pt-12 pb-24 md:pt-12 md:pb-32 bg-ivory">
                         <div className="container mx-auto px-6 md:px-12">
                             <SectionTitle title="NOUS SITUER" subtitle="Lubumbashi" />
                             <div className="grid lg:grid-cols-2 gap-12 items-center">
                                 <RevealMotion direction="left" delay={200}>
                                     <div className="space-y-6">
-                                        <h3 className="font-serif text-3xl text-charcoal mb-4">Cabinet J.B.K.</h3>
+                                        <h3 className="font-serif text-3xl text-charcoal mb-4">Cabinet JBK Conseils</h3>
                                         <div className="space-y-4 text-lg">
                                             <div className="flex items-center">
                                                 <Phone className="text-gold w-6 h-6 mr-4" />
@@ -547,24 +605,70 @@
                     </section>
 
                     {/* Footer */}
-                    <footer className="bg-[#0a0a0a] text-stone-500 py-12 border-t border-white/5">
-                        <div className="container mx-auto px-6 text-center md:flex md:justify-between md:items-center">
-                            <div className="font-serif text-xl md:text-2xl mb-6 md:mb-0">
-                                cabinet <span className="text-gold font-bold">J.B.K.</span>
+                    <footer className="bg-[#0a0a0a] text-stone-500 py-16 border-t border-white/5">
+                        <div className="container mx-auto px-6">
+                            <div className="grid md:grid-cols-12 gap-12 mb-12">
+                                {/* Col 1 - Informations */}
+                                <div className="md:col-span-5 space-y-6">
+                                    <div className="font-serif text-2xl md:text-3xl text-white">
+                                        Cabinet <span className="text-gold font-bold">JBK Conseils</span>
+                                    </div>
+                                    <p className="text-stone-400 text-sm leading-loose max-w-sm">
+                                        Expertise juridique d'excellence, au service de vos intérêts en République Démocratique du Congo. Accompagnement stratégique, rigueur et intégrité.
+                                    </p>
+                                    <div className="flex space-x-4 pt-2">
+                                        <a href="https://wa.me/+243990311138" className="w-10 h-10 bg-white/5 hover:bg-gold rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110" target="_blank" aria-label="WhatsApp">
+                                            <WhatsApp className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://linkedin.com/in/jeanbilelekasongo" className="w-10 h-10 bg-white/5 hover:bg-gold rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110" target="_blank" aria-label="LinkedIn">
+                                            <Linkedin className="w-5 h-5" />
+                                        </a>
+                                        <a href="https://facebook.com/cabinetjbk" className="w-10 h-10 bg-white/5 hover:bg-gold rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110" target="_blank" aria-label="Facebook">
+                                            <Facebook className="w-5 h-5" />
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                {/* Col 2 - Liens Utiles */}
+                                <div className="md:col-span-3 space-y-6">
+                                    <h4 className="font-serif text-lg text-white">Liens Utiles</h4>
+                                    <ul className="space-y-4">
+                                        <li><a href="index.html" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>Accueil</a></li>
+                                        <li><a href="fondateur.html" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>Le Fondateur</a></li>
+                                        <li><a href="services.html" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>Nos Services</a></li>
+                                        <li><a href="contact.html" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>Contact</a></li>
+                                    </ul>
+                                </div>
+
+                                {/* Col 3 - Contact */}
+                                <div className="md:col-span-4 space-y-6">
+                                    <h4 className="font-serif text-lg text-white">Coordonnées</h4>
+                                    <ul className="space-y-4">
+                                        <li className="flex items-start">
+                                            <Phone className="w-5 h-5 text-gold mr-3 shrink-0" />
+                                            <a href="tel:+243990311138" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>+243 990 311 138</a>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <Mail className="w-5 h-5 text-gold mr-3 shrink-0" />
+                                            <a href="mailto:contact@cabinetjbk.cd" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>contact@cabinetjbk.cd</a>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <div className="w-5 h-5 text-gold mr-3 shrink-0 flex items-center justify-center">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                            </div>
+                                            <span className="text-sm leading-relaxed">Avenue Maniema coin Kambove<br/>Lubumbashi, RDC</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div className="flex items-center justify-center md:justify-end space-x-6 mb-6 md:mb-0">
-                                <a href="https://wa.me/+243990311138" className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110" target="_blank">
-                                    <WhatsApp className="w-6 h-6" />
-                                </a>
-                                <a href="https://linkedin.com/in/jeanbilelekasongo" className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110" target="_blank">
-                                    <Linkedin className="w-6 h-6" />
-                                </a>
-                                <a href="https://facebook.com/cabinetjbk" className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110" target="_blank">
-                                    <Facebook className="w-6 h-6" />
-                                </a>
-                            </div>
-                            <div className="text-xs opacity-75 mt-8 pt-8 border-t border-white/10 md:mt-0 md:pt-0">
-                                © 2026 Cabinet Jean Bilele Kasongo. Tous droits réservés | Lubumbashi, RDC
+                            
+                            <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center bg-[#0a0a0a]">
+                                <p className="text-xs opacity-60 mb-4 md:mb-0">
+                                    © 2026 Cabinet JBK Conseils. Tous droits réservés.
+                                </p>
+                                <p className="text-xs opacity-60">
+                                    Site conçu par <a href="https://marcoilng.netlify.app" target="_blank" style={{color:'#C5A059',textDecoration:'none'}} className="font-bold hover:underline hover:opacity-100 transition-opacity">Marco ILUNGA</a>
+                                </p>
                             </div>
                         </div>
                     </footer>
