@@ -313,6 +313,7 @@
                             {/* Desktop Menu avec hover */}
                             <div className="hidden md:flex items-center space-x-10">
                                 <a href="fondateur.html" className={`text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 hover:text-gold ${scrolled ? 'text-charcoal' : 'text-white'}`} style={{textDecoration:'none'}}>Fondateur</a>
+                                <a href="equipe.html" className={`text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 hover:text-gold ${scrolled ? 'text-charcoal' : 'text-white'}`} style={{textDecoration:'none'}}>Équipe</a>
                                 <a href="services.html" className={`text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 hover:text-gold ${scrolled ? 'text-charcoal' : 'text-white'}`} style={{textDecoration:'none'}}>Services</a>
                                 <a href="contact.html" className={`text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 hover:text-gold ${scrolled ? 'text-charcoal' : 'text-white'}`} style={{textDecoration:'none'}}>Contact</a>
                                 <Button variant={scrolled ? "primary" : "outline"} onClick={() => window.location.href='contact.html'} className={scrolled ? "" : "border-white text-white hover:bg-white hover:text-charcoal"}>Prendre RDV</Button>
@@ -333,6 +334,7 @@
                         {/* Mobile Overlay avec backdrop blur */}
                         <div className={`fixed inset-0 bg-ivory/95 backdrop-blur-md flex flex-col justify-center items-center space-y-8 transition-all duration-500 ease-in-out z-40 ${menuOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0 pointer-events-none'}`}>
                             <a href="fondateur.html" className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300" style={{textDecoration:'none'}}>Fondateur</a>
+                            <a href="equipe.html" className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300" style={{textDecoration:'none'}}>Équipe</a>
                             <a href="services.html" className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300" style={{textDecoration:'none'}}>Services</a>
                             <a href="contact.html" className="font-serif text-3xl text-charcoal hover:text-gold transition-colors duration-300" style={{textDecoration:'none'}}>Contact</a>
                         </div>
@@ -633,6 +635,7 @@
                                     <ul className="space-y-4">
                                         <li><a href="index.html" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>Accueil</a></li>
                                         <li><a href="fondateur.html" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>Le Fondateur</a></li>
+                                        <li><a href="equipe.html" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>L'Équipe</a></li>
                                         <li><a href="services.html" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>Nos Services</a></li>
                                         <li><a href="contact.html" className="text-sm hover:text-gold transition-colors" style={{textDecoration:'none'}}>Contact</a></li>
                                     </ul>

@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe | Cabinet JBK Conseils</title>
+
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel pour le JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Configuration Tailwind personnalisée -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'ivory': '#FDFBF7',
+                        'charcoal': '#111111',
+                        'gold': '#C5A059',
+                        'gold-dark': '#B08D4B',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-out forwards',
+                        'slide-up': 'slideUp 1s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --ivory: #FDFBF7;
+            --charcoal: #111111;
+            --gold: #C5A059;
+            --gold-dark: #B08D4B;
+            --gold-light: rgba(197, 160, 89, 0.1);
+            --stone: #F5F3EF;
+            --text: #333;
+            --muted: #6b6b6b;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(.8);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes scroll-hint {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+        }
+
+        @keyframes ken-burns {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        :root {
+            --ivory: #FDFBF7;
+            --charcoal: #111111;
+            --gold: #C5A059;
+            --gold-dark: #B08D4B;
+            --gold-light: rgba(197, 160, 89, 0.15);
+            --stone: #F5F3EF;
+            --text: #333;
+            --muted: #6b6b6b;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(197, 160, 89, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            cursor: default;
+        }
+
+        body {
+            background-color: var(--ivory);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm66 3c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-46-45c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm26 18c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm16 18c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zM24 46c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm34-40c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm2-2c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm-40 44c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zM66 18c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z' fill='%23c5a059' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: var(--text);
+            font-family: 'Lato', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 2rem 0;
+            transition: all .6s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(253, 251, 247, .96);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, .07);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            letter-spacing: -.02em;
+            text-decoration: none;
+            color: #fff;
+            transition: color .3s;
+        }
+
+        nav.scrolled .nav-logo {
+            color: var(--charcoal);
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #fff;
+            transition: color .3s, transform .3s;
+            position: relative;
+        }
+
+        nav.scrolled .nav-links a {
+            color: var(--charcoal);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .btn-nav {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: .8rem 1.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all .4s;
+            border-radius: 50px;
+        }
+
+        nav.scrolled .btn-nav {
+            background: var(--charcoal);
+            color: #fff;
+            border-color: var(--charcoal);
+        }
+
+        .btn-nav:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #fff;
+        }
+
+        .btn-nav::after {
+            display: none !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            transition: all .3s;
+            border-radius: 2px;
+        }
+
+        nav.scrolled .hamburger span {
+            background: var(--charcoal);
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(253, 251, 247, .97);
+            backdrop-filter: blur(16px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            z-index: 99;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .4s;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: all;
+            display: flex;
+        }
+
+        .mobile-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            transition: color .3s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--gold);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0a0a;
+            color: rgba(255, 255, 255, .4);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-desc {
+            font-size: .9rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            max-width: 320px;
+        }
+
+        .footer-social-flex {
+            display: flex;
+            gap: .8rem;
+        }
+
+        .footer-social {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .6);
+            transition: all .3s;
+            text-decoration: none;
+        }
+
+        .footer-social:hover {
+            background: var(--gold);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+        }
+
+        .footer-links-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: .75rem;
+        }
+
+        .footer-links-list a {
+            color: inherit;
+            text-decoration: none;
+            transition: color .3s;
+            font-size: .9rem;
+        }
+
+        .footer-links-list a:hover {
+            color: var(--gold);
+        }
+
+        .footer-icon-wrap {
+            width: 18px;
+            margin-top: 2px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            padding-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-size: .8rem;
+            opacity: .7;
+        }
+
+        .footer-bottom a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        /* WHATSAPP */
+        .wa-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 200;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .5);
+            text-decoration: none;
+            animation: float 3s ease-in-out infinite;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, .6);
+        }
+
+        .wa-float::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(37, 211, 102, .4);
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        @media(max-width:900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* HERO ENHANCEMENTS */
+        .hero-bg {
+            overflow: hidden;
+        }
+
+        .hero-bg img {
+            animation: ken-burns 20s ease infinite alternate;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gold);
+            opacity: .7;
+        }
+
+        .scroll-dot {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scroll-hint 2s ease-in-out infinite;
+        }
+
+        /* CARD ENHANCEMENTS */
+        .member-card {
+            transition: all .6s cubic-bezier(0.23, 1, 0.32, 1);
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+        }
+
+        .member-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--glass-border);
+            border-radius: inherit;
+            pointer-events: none;
+            transition: all .4s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .08);
+        }
+
+        .member-card:hover::after {
+            border-color: var(--gold);
+        }
+
+        .member-img-wrap {
+            overflow: hidden;
+            position: relative;
+            border-radius: inherit;
+        }
+
+        .member-img {
+            transition: transform .8s cubic-bezier(0.23, 1, 0.32, 1);
+            filter: grayscale(1) contrast(1.1);
+        }
+
+        .member-card:hover .member-img {
+            transform: scale(1.1) rotate(1deg);
+            filter: grayscale(0) contrast(1);
+        }
+
+        .card-gold-flash {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent, rgba(197, 160, 89, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform .6s;
+        }
+
+        .member-card:hover .card-gold-flash {
+            transform: translateX(100%);
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            background: var(--gold-light);
+            border: 0.5px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--gold);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .bio-text {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-card:hover .bio-text {
+            -webkit-line-clamp: initial;
+            line-clamp: initial;
+        }
+
+        .section-intro {
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-intro-bar {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 1.5rem auto;
+        }
+
+        .section-intro p {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--ivory);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        // Icons
+        const Mail = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>);
+        const Phone = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>);
+        const Linkedin = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>);
+
+        const Reveal = ({ children, delay = 0, direction = "up", distance = 40 }) => {
+            const [visible, setVisible] = useState(false);
+            const ref = useRef(null);
+
+            useEffect(() => {
+                const observer = new IntersectionObserver(([entry]) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => setVisible(true), delay);
+                        observer.unobserve(entry.target);
+                    }
+                }, { threshold: 0.1 });
+                if (ref.current) observer.observe(ref.current);
+                return () => ref.current && observer.unobserve(ref.current);
+            }, [delay]);
+
+            const getTransform = () => {
+                if (!visible) {
+                    switch (direction) {
+                        case "up": return `translateY(${distance}px)`;
+                        case "down": return `translateY(-${distance}px)`;
+                        case "left": return `translateX(${distance}px)`;
+                        case "right": return `translateX(-${distance}px)`;
+                        default: return `translateY(${distance}px)`;
+                    }
+                }
+                return "translate(0,0)";
+            };
+
+            return (
+                <div
+                    ref={ref}
+                    className={`transition-all duration-1000 cubic-bezier(0.23, 1, 0.32, 1) ${visible ? 'opacity-100' : 'opacity-0'}`}
+                    style={{ transform: getTransform() }}
+                >
+                    {children}
+                </div>
+            );
+        };
+
+        const MemberCard = ({ member, delay }) => (
+            <Reveal delay={delay} distance={60}>
+                <div className="member-card group relative rounded-[2rem] overflow-hidden flex flex-col h-full">
+                    <div className="member-img-wrap aspect-[4/5]">
+                        <img
+                            src={member.image}
+                            alt={member.name}
+                            className="member-img w-full h-full object-cover"
+                        />
+                        <div className="card-gold-flash"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                        {/* Social Icons - Staggered */}
+                        <div className="absolute top-6 right-6 flex flex-col gap-3">
+                            <a href="#" className="w-10 h-10 rounded-full bg-ivory/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-gold hover:border-gold transition-all duration-300 opacity-0 group-hover:opacity-100 translate-x-10 group-hover:translate-x-0" style={{ transitionDelay: '100ms' }}>
+                                <Linkedin className="w-4 h-4" />
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-ivory/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-gold hover:border-gold transition-all duration-300 opacity-0 group-hover:opacity-100 translate-x-10 group-hover:translate-x-0" style={{ transitionDelay: '200ms' }}>
+                                <Mail className="w-4 h-4" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="p-8 flex-grow flex flex-col z-10 relative">
+                        <div className="role-badge">{member.role}</div>
+                        <h3 className="font-serif text-2xl text-charcoal mb-4 group-hover:text-gold transition-colors duration-300">{member.name}</h3>
+                        <p className="bio-text text-stone-500 text-sm leading-relaxed font-light transition-all duration-500">
+                            {member.bio}
+                        </p>
+
+                        <div className="mt-auto pt-4 flex items-center gap-2 text-gold text-[10px] font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            VOIR LE PROFIL <span className="text-xs">→</span>
+                        </div>
+                    </div>
+                </div>
+            </Reveal>
+        );
+
+        function App() {
+            const [scrolled, setScrolled] = useState(false);
+            const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+            useEffect(() => {
+                const handleScroll = () => setScrolled(window.scrollY > 60);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const team = [
+                {
+                    name: "Maître jean Bilele",
+                    role: "Avocat Principal & Fondateur",
+                    image: "images/maitre jean bilele.jpeg",
+                    bio: "Expert reconnu en droit minier et des affaires, Maître Bilele dirige le cabinet avec une vision d'excellence et d'intégrité.",
+                    category: "direction"
+                },
+                {
+                    name: "Maître Sarah Mutamba",
+                    role: "Avocate Associée (Droit des Affaires)",
+                    image: "images/equipe/member2.png",
+                    bio: "Spécialisée dans l'accompagnement des entreprises internationales et la conformité aux normes OHADA.",
+                    category: "associes"
+                },
+                {
+                    name: "Maître Patrick Kalala",
+                    role: "Avocat Associé (Droit Minier)",
+                    image: "images/equipe/member3.png",
+                    bio: "Expert en réglementation minière, il assiste les grands groupes dans l'obtention et la gestion de leurs permis.",
+                    category: "associes"
+                },
+                {
+                    name: "Maître Dorcas Ngoy",
+                    role: "Avocate Junior",
+                    image: "images/equipe/member4.png",
+                    bio: "Prometteuse et rigoureuse, elle intervient sur les dossiers de droit civil et administratif.",
+                    category: "juristes"
+                },
+                {
+                    name: "M. Isaac Kabamba",
+                    role: "Assistant Juridique Principal",
+                    image: "images/equipe/member5.png",
+                    bio: "Pilier opérationnel du cabinet, il assure le suivi rigoureux de toutes les procédures administratives.",
+                    category: "support"
+                },
+                {
+                    name: "M. Christian Lukusa",
+                    role: "Responsable Admin & Financier",
+                    image: "images/equipe/member6.png",
+                    bio: "Garant de la stabilité financière et organisationnelle du cabinet JBK Conseils.",
+                    category: "support"
+                },
+                {
+                    name: "Mme Esther Mwewa",
+                    role: "Responsable IT & Digital",
+                    image: "images/medium-shot-smiley-graduate-student.jpg",
+                    bio: "Assure la sécurité des données et l'innovation technologique au sein du cabinet.",
+                    category: "support"
+                },
+                {
+                    name: "Mme Gloria Kapinga",
+                    role: "Réceptionniste & Accueil",
+                    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800",
+                    bio: "Le visage et la voix accueillante du cabinet, veillant au confort de chaque client dès son arrivée.",
+                    category: "support"
+                }
+            ];
+
+            return (
+                <div className="bg-ivory min-h-screen font-sans">
+                    {/* NAV */}
+                    <nav className={scrolled ? 'scrolled' : ''}>
+                        <div className="nav-inner">
+                            <a href="index.html" className="nav-logo">Cabinet <span>JBK Conseils</span></a>
+                            <div className="nav-links">
+                                <a href="fondateur.html">Fondateur</a>
+                                <a href="equipe.html" className="active">Équipe</a>
+                                <a href="services.html">Services</a>
+                                <a href="contact.html">Contact</a>
+                                <a href="contact.html" className="btn-nav">Prendre RDV</a>
+                            </div>
+                            <button className={`hamburger ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                                <span></span><span></span><span></span>
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* MOBILE MENU */}
+                    <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+                        <a href="fondateur.html" onClick={() => setMobileMenuOpen(false)}>Fondateur</a>
+                        <a href="equipe.html" onClick={() => setMobileMenuOpen(false)}>Équipe</a>
+                        <a href="services.html" onClick={() => setMobileMenuOpen(false)}>Services</a>
+                        <a href="contact.html" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+                        <a href="contact.html" style={{ color: 'var(--gold)' }}>Prendre RDV →</a>
+                    </div>
+
+                    {/* Hero */}
+                    <header className="hero h-screen relative flex items-center justify-center overflow-hidden bg-charcoal">
+                        <div className="hero-bg absolute inset-0">
+                            <img src="images/background page d'acceuil.png" alt="Background" className="w-full h-full object-cover opacity-30" />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-transparent to-ivory"></div>
+
+                        <div className="container mx-auto px-6 relative z-10 text-center">
+                            <Reveal direction="down" distance={30}>
+                                <span className="inline-block px-4 py-1 border border-gold/30 rounded-full text-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-8 backdrop-blur-sm">
+                                    Élite Juridique RDC
+                                </span>
+                            </Reveal>
+                            <Reveal delay={200}>
+                                <h1 className="font-serif text-5xl md:text-8xl text-white mb-6 leading-tight">
+                                    Votre <em className="text-gold italic font-normal">Équipe</em><br />
+                                    <span className="text-white/90">D'Excellence</span>
+                                </h1>
+                            </Reveal>
+                            <Reveal delay={400} distance={20}>
+                                <div className="h-[1px] w-24 bg-gold mx-auto mb-8"></div>
+                                <p className="text-white/60 max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                                    Une synergie d'experts dévoués à la protection de vos intérêts et à la réussite de vos projets stratégiques.
+                                </p>
+                            </Reveal>
+                        </div>
+
+                        {/* Scroll indicator */}
+                        <div className="scroll-indicator">
+                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase mb-2">Explorer</span>
+                            <div className="scroll-dot"></div>
+                        </div>
+                    </header>
+
+                    {/* Team Section */}
+                    <section className="py-24 md:py-40 relative">
+                        <div className="container mx-auto px-6 md:px-12">
+
+                            {/* Direction */}
+                            <div className="mb-32">
+                                <div className="section-intro">
+                                    <Reveal direction="up">
+                                        <h2 className="font-serif text-4xl text-charcoal mb-4 italic">La Direction</h2>
+                                        <div className="section-intro-bar"></div>
+                                        <p>Sous l'impulsion de notre fondateur, la direction définit la vision stratégique et garantit les standards d'excellence du cabinet.</p>
+                                    </Reveal>
+                                </div>
+
+                                <div className="flex justify-center mt-12">
+                                    <div className="max-w-md w-full">
+                                        <MemberCard member={team[0]} delay={100} />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Associés */}
+                            <div className="mb-32">
+                                <div className="section-intro">
+                                    <Reveal direction="up">
+                                        <h2 className="font-serif text-4xl text-charcoal mb-4 italic">Les Associés</h2>
+                                        <div className="section-intro-bar"></div>
+                                        <p>Nos associés apportent une expertise pointue dans les secteurs clés du droit des affaires et du droit minier en RDC.</p>
+                                    </Reveal>
+                                </div>
+                                <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mt-12">
+                                    <MemberCard member={team[1]} delay={200} />
+                                    <MemberCard member={team[2]} delay={300} />
+                                </div>
+                            </div>
+
+                            {/* Expertise & Support */}
+                            <div>
+                                <div className="section-intro">
+                                    <Reveal direction="up">
+                                        <h2 className="font-serif text-4xl text-charcoal mb-4 italic">Expertise & Support</h2>
+                                        <div className="section-intro-bar"></div>
+                                        <p>Une équipe dynamique et rigoureuse assurant l'efficacité opérationnelle et le suivi minutieux de chaque dossier.</p>
+                                    </Reveal>
+                                </div>
+                                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                                    {team.slice(3).map((member, i) => (
+                                        <MemberCard key={i} member={member} delay={100 + (i * 100)} />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Join Us CTA */}
+                    <section className="py-24 bg-charcoal text-white relative overflow-hidden">
+                        <div className="absolute right-0 top-0 w-1/3 h-full bg-gold/5 blur-3xl rounded-full"></div>
+                        <div className="container mx-auto px-6 text-center relative z-10">
+                            <Reveal>
+                                <h3 className="font-serif text-3xl md:text-5xl mb-8 italic">"L'audace de l'excellence, la force du collectif."</h3>
+                                <div className="h-[1px] w-24 bg-gold mx-auto mb-12 opacity-60"></div>
+                                <p className="text-stone-400 max-w-2xl mx-auto mb-10">
+                                    Le Cabinet JBK Conseils est en constante recherche de talents passionnés par le droit et l'innovation juridique en RDC.
+                                </p>
+                                <a href="contact.html" className="inline-block bg-gold hover:bg-gold-dark text-white px-10 py-4 rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300">Nous rejoindre</a>
+                            </Reveal>
+                        </div>
+                    </section>
+
+                    {/* Footer - Identique aux autres pages */}
+                    <footer>
+                        <div className="container">
+                            <div className="footer-grid">
+                                <div>
+                                    <div className="footer-logo">Cabinet <span>JBK Conseils</span></div>
+                                    <p className="footer-desc">Expertise juridique d'excellence, au service de vos intérêts en République Démocratique du Congo. Accompagnement stratégique, rigueur et intégrité.</p>
+                                    <div className="footer-social-flex">
+                                        <a href="https://wa.me/+243990311138" className="footer-social" target="_blank" aria-label="WhatsApp">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.446l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" /></svg>
+                                        </a>
+                                        <a href="https://linkedin.com/in/jeanbilelekasongo" class="footer-social" target="_blank" aria-label="LinkedIn">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
+                                        </a>
+                                        <a href="https://facebook.com/cabinetjbk" class="footer-social" target="_blank" aria-label="Facebook">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 className="footer-title">Liens Utiles</h4>
+                                    <ul className="footer-links-list">
+                                        <li><a href="index.html">Accueil</a></li>
+                                        <li><a href="fondateur.html">Le Fondateur</a></li>
+                                        <li><a href="equipe.html">L'Équipe</a></li>
+                                        <li><a href="services.html">Nos Services</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 className="footer-title">Coordonnées</h4>
+                                    <ul className="footer-links-list">
+                                        <li>
+                                            <div className="footer-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></div>
+                                            <a href="tel:+243990311138">+243 990 311 138</a>
+                                        </li>
+                                        <li>
+                                            <div className="footer-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg></div>
+                                            <a href="mailto:contact@cabinetjbk.cd">contact@cabinetjbk.cd</a>
+                                        </li>
+                                        <li>
+                                            <div className="footer-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg></div>
+                                            <span style={{ color: 'rgba(255,255,255,.6)', lineHeight: '1.6' }}>Avenue Maniema coin Kambove<br />Lubumbashi, RDC</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="footer-bottom">
+                                <span>© 2026 Cabinet JBK Conseils. Tous droits réservés.</span>
+                                <span>Site conçu par <a href="https://marcoilng.netlify.app" target="_blank" style={{ transition: 'opacity 0.3s' }}>Marco ILUNGA</a></span>
+                            </div>
+                        </div>
+                    </footer>
+
+                    {/* WhatsApp */}
+                    <a href="https://wa.me/+243990311138" className="wa-float" target="_blank">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.446l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" /></svg>
+                    </a>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
