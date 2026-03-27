@@ -678,6 +678,20 @@
         const Mail = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>);
         const Phone = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>);
         const Linkedin = (props) => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>);
+        
+        const UserMale = (props) => (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" {...props}>
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+            </svg>
+        );
+
+        const UserFemale = (props) => (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" {...props}>
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                <path d="M12 13c-2 0-3.5 1-4 2.5V18h8v-2.5c-.5-1.5-2-2.5-4-2.5z" opacity="0.5"/>
+            </svg>
+        );
 
         const Reveal = ({ children, delay = 0, direction = "up", distance = 40 }) => {
             const [visible, setVisible] = useState(false);
@@ -721,12 +735,18 @@
         const MemberCard = ({ member, delay }) => (
             <Reveal delay={delay} distance={60}>
                 <div className="member-card group relative rounded-[2rem] overflow-hidden flex flex-col h-full">
-                    <div className="member-img-wrap aspect-[4/5]">
-                        <img
-                            src={member.image}
-                            alt={member.name}
-                            className="member-img w-full h-full object-cover"
-                        />
+                    <div className="member-img-wrap aspect-[4/5] bg-stone-100 flex items-center justify-center">
+                        {member.image === "male_avatar" ? (
+                            <UserMale className="w-1/2 h-1/2 text-gold/40" />
+                        ) : member.image === "female_avatar" ? (
+                            <UserFemale className="w-1/2 h-1/2 text-gold/40" />
+                        ) : (
+                            <img
+                                src={member.image}
+                                alt={member.name}
+                                className="member-img w-full h-full object-cover"
+                            />
+                        )}
                         <div className="card-gold-flash"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
@@ -768,59 +788,73 @@
 
             const team = [
                 {
-                    name: "Maître jean Bilele",
+                    name: "Maître Jean Bilele Kasongo",
                     role: "Avocat Principal & Fondateur",
                     image: "images/maitre jean bilele.jpeg",
                     bio: "Expert reconnu en droit minier et des affaires, Maître Bilele dirige le cabinet avec une vision d'excellence et d'intégrité.",
                     category: "direction"
                 },
                 {
-                    name: "Maître Sarah Mutamba",
-                    role: "Avocate Associée (Droit des Affaires)",
-                    image: "images/equipe/member2.png",
-                    bio: "Spécialisée dans l'accompagnement des entreprises internationales et la conformité aux normes OHADA.",
+                    name: "Maître Simon Mwamba",
+                    role: "Avocat Associé",
+                    image: "male_avatar",
+                    bio: "Spécialiste en droit des sociétés et contentieux commercial, Maître Mwamba apporte une expertise stratégique aux clients du cabinet.",
                     category: "associes"
                 },
                 {
-                    name: "Maître Patrick Kalala",
-                    role: "Avocat Associé (Droit Minier)",
-                    image: "images/equipe/member3.png",
-                    bio: "Expert en réglementation minière, il assiste les grands groupes dans l'obtention et la gestion de leurs permis.",
+                    name: "Maître Thierry Kakudji Luhete",
+                    role: "Avocat Associé",
+                    image: "male_avatar",
+                    bio: "Expert en droit minier et fiscalité des entreprises, il accompagne les investisseurs dans leurs projets de grande envergure.",
                     category: "associes"
                 },
                 {
-                    name: "Maître Dorcas Ngoy",
-                    role: "Avocate Junior",
-                    image: "images/equipe/member4.png",
-                    bio: "Prometteuse et rigoureuse, elle intervient sur les dossiers de droit civil et administratif.",
+                    name: "Maître Cheick Kabange",
+                    role: "Avocat Associé",
+                    image: "male_avatar",
+                    bio: "Spécialisé dans l'arbitrage international et le droit OHADA, Maître Kabange assure la sécurité juridique des transactions complexes.",
+                    category: "associes"
+                },
+                {
+                    name: "Maître Cedrick Thimanga",
+                    role: "Avocat Collaborateur",
+                    image: "male_avatar",
+                    bio: "Rigoureux et dévoué, il intervient principalement dans les dossiers de droit civil et administratif.",
                     category: "juristes"
                 },
                 {
-                    name: "M. Isaac Kabamba",
+                    name: "Maître Chadrack Badinanga",
+                    role: "Avocat Collaborateur",
+                    image: "male_avatar",
+                    bio: "Spécialiste du droit du travail et de la sécurité sociale, il assiste les entreprises dans la gestion de leur capital humain.",
+                    category: "juristes"
+                },
+                {
+                    name: "Maître Ilunga",
+                    role: "Avocat Collaborateur",
+                    image: "male_avatar",
+                    bio: "Expert en droit foncier et immobilier, Maître Ilunga conseille sur les acquisitions et les contentieux de propriété.",
+                    category: "juristes"
+                },
+                {
+                    name: "Maître Emmanuela",
+                    role: "Avocate Collaboratrice",
+                    image: "female_avatar",
+                    bio: "Spécialisée en droit de la famille et droit pénal, elle assure une défense passionnée pour la protection des droits individuels.",
+                    category: "juristes"
+                },
+                {
+                    name: "John Ngengele Kasongo",
                     role: "Assistant Juridique Principal",
-                    image: "images/equipe/member5.png",
-                    bio: "Pilier opérationnel du cabinet, il assure le suivi rigoureux de toutes les procédures administratives.",
+                    image: "male_avatar",
+                    bio: "Indispensable au bon fonctionnement du cabinet, John coordonne les procédures administratives et le suivi des dossiers.",
                     category: "support"
                 },
                 {
-                    name: "M. Christian Lukusa",
-                    role: "Responsable Admin & Financier",
-                    image: "images/equipe/member6.png",
-                    bio: "Garant de la stabilité financière et organisationnelle du cabinet JBK Conseils.",
-                    category: "support"
-                },
-                {
-                    name: "Mme Esther Mwewa",
-                    role: "Responsable IT & Digital",
-                    image: "images/medium-shot-smiley-graduate-student.jpg",
-                    bio: "Assure la sécurité des données et l'innovation technologique au sein du cabinet.",
-                    category: "support"
-                },
-                {
-                    name: "Mme Gloria Kapinga",
-                    role: "Réceptionniste & Accueil",
-                    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800",
-                    bio: "Le visage et la voix accueillante du cabinet, veillant au confort de chaque client dès son arrivée.",
+                    name: "Marie Yav",
+                    role: "Secrétaire du Cabinet",
+                    image: "female_avatar",
+                    bio: "Première interlocutrice des clients, Marie assure un accueil d'excellence et une gestion rigoureuse de l'agenda du cabinet.",
                     category: "support"
                 }
             ];
@@ -854,9 +888,9 @@
                     </div>
 
                     {/* Hero */}
-                    <header className="hero h-screen relative flex items-center justify-center overflow-hidden bg-charcoal">
+                    <header className="hero h-screen relative flex items-center justify-center overflow-hidden bg-charcoal text-white">
                         <div className="hero-bg absolute inset-0">
-                            <img src="images/background page d'acceuil.png" alt="Background" className="w-full h-full object-cover opacity-30" />
+                            <img src="images/equipe/image equipe jbk.jpg" alt="Équipe JBK Conseils" className="w-full h-full object-cover opacity-40 scale-105" />
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-transparent to-ivory"></div>
 
@@ -917,9 +951,10 @@
                                         <p>Nos associés apportent une expertise pointue dans les secteurs clés du droit des affaires et du droit minier en RDC.</p>
                                     </Reveal>
                                 </div>
-                                <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mt-12">
+                                <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto mt-12">
                                     <MemberCard member={team[1]} delay={200} />
                                     <MemberCard member={team[2]} delay={300} />
+                                    <MemberCard member={team[3]} delay={400} />
                                 </div>
                             </div>
 
@@ -932,10 +967,45 @@
                                         <p>Une équipe dynamique et rigoureuse assurant l'efficacité opérationnelle et le suivi minutieux de chaque dossier.</p>
                                     </Reveal>
                                 </div>
-                                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-                                    {team.slice(3).map((member, i) => (
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                                    {team.slice(4).map((member, i) => (
                                         <MemberCard key={i} member={member} delay={100 + (i * 100)} />
                                     ))}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Nouvelle Section: Une Équipe Unie */}
+                    <section className="py-24 bg-white overflow-hidden">
+                        <div className="container mx-auto px-6">
+                            <div className="flex flex-col md:flex-row items-center gap-16">
+                                <div className="w-full md:w-1/2">
+                                    <Reveal direction="left">
+                                        <div className="relative">
+                                            <div className="absolute -inset-4 border border-gold/20 rounded-2xl translate-x-4 translate-y-4"></div>
+                                            <img 
+                                                src="images/equipe/equipe JBK 2.jpg" 
+                                                alt="Équipe JBK Conseils en synergie" 
+                                                className="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+                                            />
+                                        </div>
+                                    </Reveal>
+                                </div>
+                                <div className="w-full md:w-1/2 space-y-8">
+                                    <Reveal direction="right">
+                                        <span className="text-gold text-xs font-bold tracking-[0.3em] uppercase">Collaboration & Engagement</span>
+                                        <h2 className="font-serif text-4xl text-charcoal leading-tight mt-4">
+                                            Une synergie au service de <em className="italic font-normal text-gold">vos intérêts</em>
+                                        </h2>
+                                        <div className="h-[1px] w-20 bg-gold mt-6 mb-8"></div>
+                                        <p className="text-stone-600 text-lg leading-relaxed">
+                                            Au-delà de l'expertise individuelle, c'est notre force collective qui fait la différence. Chaque dossier bénéficie d'une réflexion transversale et d'un engagement total de nos collaborateurs pour garantir une réactivité optimale.
+                                        </p>
+                                        <p className="text-stone-600 text-lg leading-relaxed border-l-2 border-gold/30 pl-6 italic">
+                                            "Nous cultivons un esprit d'équipe rigoureux et solidaire, tourné vers l'excellence et la satisfaction de nos clients."
+                                        </p>
+                                    </Reveal>
                                 </div>
                             </div>
                         </div>
