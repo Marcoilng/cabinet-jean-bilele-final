@@ -493,6 +493,95 @@
             background: rgba(37,211,102,0.4); animation: pulse-ring 2s ease-out infinite;
         }
 
+        /* ---- PORTFOLIO GRID ENHANCED ---- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .portfolio-item {
+            position: relative;
+            background: #000;
+            overflow: hidden;
+            border-radius: 4px;
+            aspect-ratio: 4/5;
+            cursor: pointer;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: grayscale(40%) contrast(1.1);
+            opacity: 0.85;
+        }
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(17,17,17,0.9) 0%, rgba(17,17,17,0) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .portfolio-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(197,160,89,0.25);
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0) contrast(1);
+            opacity: 1;
+        }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .overlay-title {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        .overlay-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 1rem;
+            transition: all 0.4s ease;
+        }
+        .portfolio-item:hover .overlay-icon {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        /* MOTION DESIGN REVEAL */
+        @keyframes revealClip {
+            from { clip-path: inset(0 0 100% 0); }
+            to   { clip-path: inset(0 0 0 0); }
+        }
+        .reveal.clip.visible {
+            animation: revealClip 1.5s cubic-bezier(0.19, 1, 0.22, 1) both;
+        }
+
+        @media (max-width: 1100px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+        @media (max-width: 850px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .portfolio-grid { grid-template-columns: 1fr; } }
+
         /* ---- RESPONSIVE ---- */
         @media (max-width: 900px) {
             .nav-links { display: none; }
@@ -687,6 +776,105 @@
                     <div class="timeline-body">
                         <div class="timeline-title">Fondation du Cabinet JBK Conseils</div>
                         <div class="timeline-desc">Création du cabinet indépendant à Lubumbashi, spécialisé en droit minier, droit des affaires et droit commun. Accompagnement d'une clientèle exigeante avec rigueur et excellence.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="section section-alt">
+        <div class="container">
+            <div style="text-align:center; max-width:600px; margin:0 auto 3rem;">
+                <span class="eyebrow reveal up">Portfolio</span>
+                <h2 class="section-title reveal up" style="transition-delay:0.1s">Maître Jean Bilele en action</h2>
+                <div class="section-divider center reveal up" style="transition-delay:0.2s"></div>
+                <p class="bio-text reveal up" style="transition-delay:0.3s">Quelques moments marquants de l'activité du cabinet et de son fondateur.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.1s">
+                    <img src="images/jbk1.jpeg" alt="Maître Jean Bilele - Action 1" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Plaidoirie & Rigueur</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.2s">
+                    <img src="images/jbk2.jpeg" alt="Maître Jean Bilele - Action 2" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Consultation Stratégique</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.3s">
+                    <img src="images/jbk3.jpeg" alt="Maître Jean Bilele - Action 3" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Expertise OHADA</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.4s">
+                    <img src="images/jbk4.jpeg" alt="Maître Jean Bilele - Action 4" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Engagement Client</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.1s">
+                    <img src="images/jbk5.jpeg" alt="Maître Jean Bilele - Action 5" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Vision Nationele</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.2s">
+                    <img src="images/jbk6.jpeg" alt="Maître Jean Bilele - Action 6" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Droit des Affaires</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.3s">
+                    <img src="images/jbk7.jpeg" alt="Maître Jean Bilele - Action 7" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Rigueur Procédurale</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.4s">
+                    <img src="images/jbk8.jpeg" alt="Maître Jean Bilele - Action 8" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Excellence & Intégrité</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.1s">
+                    <img src="images/jbk9.jpeg" alt="Maître Jean Bilele - Action 9" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Conseil Juridique</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.2s">
+                    <img src="images/jbk10.jpeg" alt="Maître Jean Bilele - Action 10" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Défense des Intérêts</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.3s">
+                    <img src="images/jbk11.jpeg" alt="Maître Jean Bilele - Action 11" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Pratique Judiciaire</div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal clip" style="transition-delay: 0.4s">
+                    <img src="images/jbk12.jpeg" alt="Maître Jean Bilele - Action 12" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="overlay-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                        <div class="overlay-title">Leadership & Droit</div>
                     </div>
                 </div>
             </div>
